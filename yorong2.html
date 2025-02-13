@@ -1,0 +1,546 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .carousel-container {
+            width: 50%;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 1.0s ease;
+        }
+
+        .carousel img {
+            width: 500%;
+            height: auto;
+            border-radius: 50px;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(252, 252, 252, 0.5);
+            color: rgb(75, 204, 251);
+            border: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .prev {
+            left: 1px;
+        }
+
+        .next {
+            right: 1px;
+        }
+
+        .carousel img {
+            object-fit: cover;
+        }
+        .result {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+    <script>
+        function openTab(event, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("bg-gray-600");
+                tablinks[i].classList.add("bg-gray-700");
+            }
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("bg-gray-600");
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-800 text-white py-6">
+        <h1 class="text-4xl font-bold text-left pl-6">Leonardo III B. Yorong</h1>
+    </header>
+    <div class="flex flex-col lg:flex-row">
+        <nav class="bg-gray-900 text-white p-6 space-y-4 lg:w-1/5">
+            <button class="tablink bg-gray-600 text-white py-3 px-4 w-full text-left rounded-md transition duration-300" onclick="openTab(event, 'about-me')">
+                About ME
+            </button>
+            <button class="tablink bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 w-full text-left rounded-md transition duration-300" onclick="openTab(event, 'subject-taken')">
+                Subject Taken
+            </button>
+            <button class="tablink bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 w-full text-left rounded-md transition duration-300" onclick="openTab(event, 'enrolled')">
+                Enrolled
+            </button>
+            <button class="tablink bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 w-full text-left rounded-md transition duration-300" onclick="openTab(event, 'contact-me')">
+                Contact Me
+            </button>
+            <button class="tablink bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 w-full text-left rounded-md transition duration-300" onclick="openTab(event, 'gallery')">
+                Gallery
+            </button>
+            <button class="tablink bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 w-full text-left rounded-md transition duration-300" onclick="openTab(event, 'my-favorites')">
+                My Favorites
+            </button>
+        </nav>
+        <main class="p-6 lg:w-4/5">
+            <div id="about-me" class="tab-content active">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 bg-yellow-200 p-4 rounded-md">About ME</h2>
+                <div class="flex flex-col lg:flex-row items-center">
+                    <img alt="Silhouette of a person with glasses" class="w-80 h-80 object-cover rounded-full shadow-lg" src="461992650_1502385924488040_943459734690088331_n (2).jpg" />
+                    <div class="ml-0 lg:ml-6 mt-6 lg:mt-0 text-gray-700">
+                        <h3 class="text-2xl font-semibold mb-4">Personal Info</h3>
+                        <p><strong>Name:</strong> Leonardo III B. Yorong</p>
+                        <p><strong>Age:</strong> 19</p>
+                        <p><strong>Location:</strong> Philippines</p>
+                        <p><strong>Occupation:</strong> Student</p>
+                        <p><strong>Hobbies/Interests:</strong> Guitar playing, Basketball, Hiking, Songwriting, Exploring new music genres, and Traveling</p>
+                        <p><strong>Favorite Color:</strong> Pink</p>
+                        <p><strong>Favorite Food:</strong> Pizza, Burger, and Sushi</p>
+                        <p><strong>Favorite Music Genre:</strong> Acoustic, Rock, and Indie</p>
+                        <p class="mt-4 bg-yellow-200 p-4 rounded-md">
+                            <strong>About Me:</strong> As an IT student, I am passionate about learning new technologies, developing innovative solutions, and continuously improving my skills in programming, networking, and cybersecurity to prepare for a successful career in the tech industry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="subject-taken" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 bg-yellow-200 p-4 rounded-md">Subjects Taken</h2>
+                <div class="text-gray-700">
+                    <div id="page1" class="semester active">
+<h3 class="text-2xl font-semibold mb-4 text-center bg-blue-800 text-white p-4 rounded-lg">First Semester - 2024-2025</h3>
+<table class="w-full border-collapse mt-4 border border-gray-300">
+    <thead>
+        <tr class="bg-gray-800 text-white">
+            <th class="border px-4 py-2">Course Code</th>
+            <th class="border px-4 py-2">Course Name</th>
+            <th class="border px-4 py-2">Schedule</th>
+            <th class="border px-4 py-2">Room</th>
+            <th class="border px-4 py-2">Units</th>
+            <th class="border px-4 py-2">Status</th>
+            <th class="border px-4 py-2">Instructor</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-gray-100">
+                <td class="border px-4 py-2">OC 1</td>
+                <td class="border px-4 py-2">Orientation Course 1</td>
+                <td class="border px-4 py-2">TTH</td>
+                <td class="border px-4 py-2">HF305</td>
+                <td class="border px-4 py-2">3</td>
+                <td class="border px-4 py-2 text-green-600 font-bold">Passed</td>
+                <td class="border px-4 py-2">Talirongan, Florence Jean Badilles</td>
+            </tr>
+            <tr class="bg-gray-100">
+                <td class="border px-4 py-2">ITEL 1A</td>
+                <td class="border px-4 py-2">IT Elective 1: Platform Technologies</td>
+                <td class="border px-4 py-2">TTH</td>
+                <td class="border px-4 py-2">HF306 - HF204</td>
+                <td class="border px-4 py-2">3</td>
+                <td class="border px-4 py-2 text-green-600 font-bold">Passed</td>
+                <td class="border px-4 py-2">Talirongan, Hidear</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">ITEL 2A</td>
+                <td class="border px-4 py-2">IT Elective 2: Object-Oriented Programming</td>
+                <td class="border px-4 py-2">MW</td>
+                <td class="border px-4 py-2">HF307 - HF204</td>
+                <td class="border px-4 py-2">3</td>
+                <td class="border px-4 py-2 text-green-600 font-bold">Passed</td>
+                <td class="border px-4 py-2">Lumasag, Jerry Maghuyop</td>
+            </tr>
+            <tr class="bg-gray-100">
+                <td class="border px-4 py-2">PE 3</td>
+                <td class="border px-4 py-2">Path Fit 3: Sports (Individual/Dual)</td>
+                <td class="border px-4 py-2">F</td>
+                <td class="border px-4 py-2">POOL</td>
+                <td class="border px-4 py-2">2</td>
+                <td class="border px-4 py-2 text-green-600 font-bold">Passed</td>
+                <td class="border px-4 py-2">Dolocanog, Mellin Jan M</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">ENGL A</td>
+                <td class="border px-4 py-2">Grammar and Speech Enhancement</td>
+                <td class="border px-4 py-2">TTH</td>
+                <td class="border px-4 py-2">MP203</td>
+                <td class="border px-4 py-2">3</td>
+                <td class="border px-4 py-2 text-green-600 font-bold">Passed</td>
+                <td class="border px-4 py-2">Aplaca, Hannah May S</td>
+            </tr>
+            <tr class="bg-gray-100">
+                <td class="border px-4 py-2">PHILO 1</td>
+                <td class="border px-4 py-2">Ethics / Etika</td>
+                <td class="border px-4 py-2">MW</td>
+                <td class="border px-4 py-2">NE107</td>
+                <td class="border px-4 py-2">3</td>
+                <td class="border px-4 py-2 text-green-600 font-bold">Passed</td>
+                <td class="border px-4 py-2">Organiza, Virgilio Hatol</td>
+            </tr>
+        </tbody>
+        </table>
+        <p class="result">RESULT: 7</p>
+        
+                    </div>
+            
+                    <div id="page2" class="semester hidden">
+                        <h3 class="text-2xl font-semibold mb-4 text-center bg-blue-800 text-white p-4 rounded-lg">Second Semester - 2024-2025</h3>
+                        <table class="w-full border-collapse mt-4 border border-gray-300">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border p-2">Course Code</th>
+                                    <th class="border p-2">Course Name</th>
+                                    <th class="border p-2">Schedule</th>
+                                    <th class="border p-2">Room</th>
+                                    <th class="border p-2">Units</th>
+                                    <th class="border p-2">Instructor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">CSIT 5</td>
+                                    <td class="border p-2">Information Management</td>
+                                    <td class="border p-2">TTH</td>
+                                    <td class="border p-2">HF306 - HF304</td>
+                                    <td class="border p-2">3</td>
+                                    <td class="border p-2">Talirongan, Florence Jean Badilles</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">ITP 4</td>
+                                    <td class="border p-2">Integrative Programming & Technologies 1</td>
+                                    <td class="border p-2">MW - TTH</td>
+                                    <td class="border p-2">HF307 - HF204</td>
+                                    <td class="border p-2">3</td>
+                                    <td class="border p-2">Talirongan, Hidear</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">ITP 6</td>
+                                    <td class="border p-2">Introduction to Human Computer Interaction</td>
+                                    <td class="border p-2">MW</td>
+                                    <td class="border p-2">HF305 - HF204</td>
+                                    <td class="border p-2">3</td>
+                                    <td class="border p-2">Caroro, Roseclaremath Aviso</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">GE EL 3</td>
+                                    <td class="border p-2">Indigenous Creative Works</td>
+                                    <td class="border p-2">FRI</td>
+                                    <td class="border p-2">SA102</td>
+                                    <td class="border p-2">3</td>
+                                    <td class="border p-2">Caroro, Roseclaremath Aviso</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">PE 4</td>
+                                    <td class="border p-2">Path Fit 4: Sports (Team)</td>
+                                    <td class="border p-2">TBA</td>
+                                    <td class="border p-2">CCRT</td>
+                                    <td class="border p-2">2</td>
+                                    <td class="border p-2">Caroro, Roseclaremath Aviso</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    
+            
+                    <!-- Pagination with Arrows -->
+                    <div class="pagination mt-6 text-center">
+                        <button onclick="prevPage()" class="px-4 py-2 bg-gray-700 text-white rounded-md mx-2">←</button>
+                        <button onclick="showPage(1)" id="btn1" class="page-btn px-4 py-2 rounded-md mx-2">1</button>
+                        <button onclick="showPage(2)" id="btn2" class="page-btn px-4 py-2 rounded-md mx-2">2</button>
+                        <button onclick="nextPage()" class="px-4 py-2 bg-gray-700 text-white rounded-md mx-2">→</button>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .page-btn {
+                    background-color: gray;
+                    color: white;
+                    font-weight: bold;
+                }
+            
+                .active-btn {
+                    background-color: blue;
+                    color: white;
+                }
+            </style>
+            
+            <script>
+                let currentPage = 1;
+            
+                function showPage(page) {
+                    document.querySelectorAll('.semester').forEach(el => el.classList.add('hidden'));
+                    document.getElementById('page' + page).classList.remove('hidden');
+            
+                    // Reset all buttons
+                    document.querySelectorAll('.page-btn').forEach(btn => btn.classList.remove('active-btn'));
+            
+                    // Highlight the active button
+                    document.getElementById('btn' + page).classList.add('active-btn');
+            
+                    currentPage = page;
+                }
+            
+                function prevPage() {
+                    if (currentPage > 1) {
+                        showPage(currentPage - 1);
+                    }
+                }
+            
+                function nextPage() {
+                    if (currentPage < 2) {
+                        showPage(currentPage + 1);
+                    }
+                }
+            
+                // Initialize the first page as active
+                document.getElementById('btn1').classList.add('active-btn');
+            </script>
+            <div id="enrolled" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 bg-yellow-200 p-4 rounded-md">Enrolled</h2>
+                <div class="text-gray-700">
+                    <<table class="w-full border-collapse mt-4 border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="border p-2">Course Code</th>
+                                <th class="border p-2">Course Name</th>
+                                <th class="border p-2">Schedule</th>
+                                <th class="border p-2">Room</th>
+                                <th class="border p-2">Units</th>
+                                <th class="border p-2">Instructor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border p-2">CSIT 5</td>
+                                <td class="border p-2">Information Management</td>
+                                <td class="border p-2">TTH</td>
+                                <td class="border p-2">HF306 - HF304</td>
+                                <td class="border p-2">3</td>
+                                <td class="border p-2">Talirongan, Florence Jean Badilles</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">ITP 4</td>
+                                <td class="border p-2">Integrative Programming & Technologies 1</td>
+                                <td class="border p-2">MW - TTH</td>
+                                <td class="border p-2">HF307 - HF204</td>
+                                <td class="border p-2">3</td>
+                                <td class="border p-2">Talirongan, Hidear</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">ITP 6</td>
+                                <td class="border p-2">Introduction to Human Computer Interaction</td>
+                                <td class="border p-2">MW</td>
+                                <td class="border p-2">HF305 - HF204</td>
+                                <td class="border p-2">3</td>
+                                <td class="border p-2">Caroro, Roseclaremath Aviso</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">GE EL 3</td>
+                                <td class="border p-2">Indigenous Creative Works</td>
+                                <td class="border p-2">FRI</td>
+                                <td class="border p-2">SA102</td>
+                                <td class="border p-2">3</td>
+                                <td class="border p-2">Caroro, Roseclaremath Aviso</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2">PE 4</td>
+                                <td class="border p-2">Path Fit 4: Sports (Team)</td>
+                                <td class="border p-2">TBA</td>
+                                <td class="border p-2">CCRT</td>
+                                <td class="border p-2">2</td>
+                                <td class="border p-2">Caroro, Roseclaremath Aviso</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-4 font-bold text-lg">RESULT: 5</p>
+                    <p class="font-bold text-lg">AVERAGE: 0</p>
+                </div>
+            </div>
+            <div id="contact-me" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 bg-yellow-200 p-4 rounded-md">Contact Me</h2>
+                <div class="hero-buttons mt-6 flex flex-col space-y-4 items-center">
+                    <button class="flex items-center space-x-3 px-6 py-3 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-900 transition duration-300">
+                        <i class="fa-solid fa-phone text-lg"></i
+                                                    <a href="tel:+639517082743" class="text-lg font-semibold">0951-708-2743</a>
+                    </button>
+                
+                    <button class="flex items-center space-x-3 px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                        <a href="https://www.facebook.com/nardz.borbon" class="text-lg font-semibold">facebook.com/nardz.borbon</a>
+                    </button>
+                
+                    <button class="flex items-center space-x-3 px-6 py-3 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 transition duration-300">
+                        <i class="fa-solid fa-envelope text-lg"></i>
+                        <a href="mailto:nardo2.yorong@gmail.com" class="text-lg font-semibold">nardo2.yorong@gmail.com</a>
+                    </button>
+                </div>
+            </div>
+            <div id="gallery" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 bg-yellow-200 p-4 rounded-md">Selfie</h2>
+                
+                <!-- Image Carousel -->
+                <div class="carousel-container relative overflow-hidden w-50% h-50 max-w-3xl mx-auto">
+                    <div class="carousel flex transition-transform duration-600">
+                        <img src="473799246_1583112786415353_8707836682827798799_n.jpg" alt="Image 1" class="w-full object-cover">
+                        <img src="472784173_1576104247116207_1431656608248010307_n.jpg" alt="Image 2" class="w-full object-cover">
+                        <img src="377977550_1215721039821198_4841511618466897796_n.jpg" alt="Image 3" class="w-full object-cover">
+                        <img src="350537535_1429657241214129_1438143352687357754_n.jpg" alt="Image 4" class="w-full object-cover">
+                        <img src="394640416_1243320357061266_610389545686085801_n.jpg" alt="Image 5" class="w-full object-cover">
+                        <img src="439452006_1357611978965436_6774727647335092894_n.jpg" alt="Image 6" class="w-full object-cover">
+                        <img src="445423843_1385516192841681_2415662825289238816_n.jpg" alt="Image 7" class="w-full object-cover">
+                        <img src="451656169_1435908744469092_8673890936498488209_n.jpg" alt="Image 8" class="w-full object-cover">
+                        <img src="454884983_1460222635371036_3046895517653880514_n.jpg" alt="Image 9" class="w-full object-cover">
+                        <img src="470172127_1555144922545473_6334977018893970920_n.jpg" alt="Image 10" class="w-full object-cover">
+                    </div>
+                    <button class="carousel-button prev absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full">&#10094;</button>
+                    <button class="carousel-button next absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full">&#10095;</button>
+                </div>
+            
+                <!-- Video Carousel -->
+                
+                <div class="video-carousel-container flex justify-center items-center w-full mt-6">
+                    <div class="video-wrapper border-4 border-gray-800 rounded-lg overflow-hidden p-2 bg-gray-900 shadow-lg">
+                        <video src="nard.mp4" controls class="w-[600px] h-auto mx-auto rounded-md"></video>
+                    </div>
+                </div>
+                
+            
+            <script>
+                let index = 0;
+                const images = document.querySelectorAll('.carousel img');
+                const carousel = document.querySelector('.carousel');
+                const prevButton = document.querySelector('.prev');
+                const nextButton = document.querySelector('.next');
+            
+                // Image Carousel Navigation
+                prevButton.addEventListener('click', () => {
+                    index = (index === 0) ? images.length - 1 : index - 1;
+                    updateCarousel();
+                });
+            
+                nextButton.addEventListener('click', () => {
+                    index = (index === images.length - 1) ? 0 : index + 1;
+                    updateCarousel();
+                });
+            
+                function updateCarousel() {
+                    carousel.style.transform = `translateX(-${index * 100}%)`;
+                }
+            
+                // Auto-Swipe Image Carousel
+                setInterval(() => {
+                    index = (index === images.length - 1) ? 0 : index + 1;
+                    updateCarousel();
+                }, 3000); // Change image every 3 seconds
+            </script>
+            
+            <div id="my-favorites" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 bg-yellow-200 p-4 rounded-md">My Favorites</h2>
+                <p class="text-gray-700 mb-4">This is the gallery section where you can showcase your favorite IT topics, nature trips, guitars, and travel destinations in Asia.</p>
+            
+                <!-- Hover Carousel -->
+                <div x-data="{ active: 0, interval: null }" 
+     x-init="interval = setInterval(() => { active = (active + 1) % 4 }, 3000)" 
+     class="relative w-full max-w-3xl mx-auto mb-6">
+    
+    <div class="overflow-hidden rounded-lg shadow-md">
+        <div class="relative flex transition-transform duration-500"
+            :style="'transform: translateX(-' + active * 100 + '%)'">
+            <img src="hacking.webp" alt="IT" class="w-full object-cover">
+            <img src="Nature-Wallpaper.jpg" alt="Nature" class="w-full object-cover">
+            <img src="guitar.jpg" alt="Guitar" class="w-full object-cover">
+            <img src="asia1.jpg" alt="Asia Trip" class="w-full object-cover">
+            <img src="asia1.jpg" alt="Asia Trip" class="w-full object-cover">
+        </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="flex justify-center mt-4">
+        <template x-for="(image, index) in [0,1,2,3]" :key="index">
+            <button class="h-3 w-3 mx-1 rounded-full bg-gray-400 hover:bg-gray-700 focus:outline-none"
+                :class="{'bg-gray-700': active === index}" 
+                @mouseover="active = index; clearInterval(interval); interval = setInterval(() => { active = (active + 1) % 4 }, 3000)">
+            </button>
+        </template>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+            
+                <!-- Favorite Items -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- IT Favorites -->
+                    <div class="p-4 border rounded-md shadow-md bg-white">
+                        <h3 class="font-bold text-lg text-blue-700">1. Artificial Intelligence</h3>
+                        <p class="text-gray-600">Exploring AI technologies like machine learning, neural networks, and automation.</p>
+                    </div>
+                    <div class="p-4 border rounded-md shadow-md bg-white">
+                        <h3 class="font-bold text-lg text-blue-700">2. Cybersecurity</h3>
+                        <p class="text-gray-600">Learning about ethical hacking, encryption, and protecting online data.</p>
+                    </div>
+            
+                    <!-- Nature Trip Favorites -->
+                    <div class="p-4 border rounded-md shadow-md bg-green-100">
+                        <h3 class="font-bold text-lg text-green-700">3. Hiking in the Mountains</h3>
+                        <p class="text-gray-600">Trekking through scenic mountain trails and experiencing breathtaking views.</p>
+                    </div>
+                    <div class="p-4 border rounded-md shadow-md bg-green-100">
+                        <h3 class="font-bold text-lg text-green-700">4. Beach Camping</h3>
+                        <p class="text-gray-600">Relaxing by the ocean, sleeping under the stars, and enjoying the sea breeze.</p>
+                    </div>
+            
+                    <!-- Guitar Favorites -->
+                    <div class="p-4 border rounded-md shadow-md bg-yellow-100">
+                        <h3 class="font-bold text-lg text-yellow-700">5. Acoustic Fingerstyle</h3>
+                        <p class="text-gray-600">Mastering fingerpicking techniques for rich and melodic guitar playing.</p>
+                    </div>
+                    <div class="p-4 border rounded-md shadow-md bg-yellow-100">
+                        <h3 class="font-bold text-lg text-yellow-700">6. Electric Guitar Soloing</h3>
+                        <p class="text-gray-600">Exploring lead guitar techniques, including bends, vibrato, and shredding.</p>
+                    </div>
+            
+                    <!-- Asia Travel Favorites -->
+                    <div class="p-4 border rounded-md shadow-md bg-red-100">
+                        <h3 class="font-bold text-lg text-red-700">7. Tokyo, Japan</h3>
+                        <p class="text-gray-600">Exploring the futuristic city, delicious sushi, and vibrant culture.</p>
+                    </div>
+                    <div class="p-4 border rounded-md shadow-md bg-red-100">
+                        <h3 class="font-bold text-lg text-red-700">8. Bali, Indonesia</h3>
+                        <p class="text-gray-600">Enjoying the tropical paradise, surfing, and visiting ancient temples.</p>
+                    </div>
+                    <div class="p-4 border rounded-md shadow-md bg-red-100">
+                        <h3 class="font-bold text-lg text-red-700">9. Seoul, South Korea</h3>
+                        <p class="text-gray-600">Experiencing K-pop culture, street food, and historical palaces.</p>
+                    </div>
+                    <div class="p-4 border rounded-md shadow-md bg-red-100">
+                        <h3 class="font-bold text-lg text-red-700">10. Bangkok, Thailand</h3>
+                        <p class="text-gray-600">Exploring vibrant street markets, temples, and trying authentic Thai cuisine.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+            
+        </main>
+    </div>
+</body>
+</html> 
